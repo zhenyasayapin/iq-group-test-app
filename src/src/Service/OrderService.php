@@ -64,6 +64,10 @@ class OrderService
     {
         $order = $this->orderRepository->findOne($id);
 
+        if (!$order) {
+            throw new \InvalidArgumentException("Order not found");
+        }
+
         $order->setStatus(OrderStatus::from($orderDto->status));
         $order->setComment($orderDto->comment);
 
