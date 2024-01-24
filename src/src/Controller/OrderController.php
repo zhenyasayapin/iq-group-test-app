@@ -29,13 +29,24 @@ class OrderController extends AbstractController
         private CommonService $commonService
     ) {}
 
-    #[Route('/', methods: ['GET'])]
+    #[Route('/all', methods: ['GET'])]
     public function index(): JsonResponse
     {
         return new JsonResponse(
             array_map(
                 fn(Order $order) => $this->orderTransformer->transform($order),
                 $this->orderService->getAll()
+            )
+        );
+    }
+
+    #[Route('/my', methods: ['GET'])]
+    public function currentUserIndex(): JsonResponse
+    {
+        return new JsonResponse(
+            array_map(
+                fn(Order $order) => $this->orderTransformer->transform($order),
+                $this->orderService->getCurrentUserAll()
             )
         );
     }

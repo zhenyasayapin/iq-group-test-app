@@ -15,6 +15,7 @@ class OrderTransformer
             'status' => $order->getStatus(),
             'comment' => $order->getComment(),
             'createdAt' => $order->getCreatedAt(),
+            'userId' => $order->getUser()->getId(),
         ];
     }
 }

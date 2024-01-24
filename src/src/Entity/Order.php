@@ -29,6 +29,10 @@ class Order
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'orders',)]
+    #[ORM\JoinColumn(nullable: false)]
+    private User $user;
+
     public function __construct()
     {
         $this->created_at = new \DateTimeImmutable();
@@ -95,6 +99,26 @@ class Order
     public function setCreatedAt(\DateTimeImmutable $created_at): static
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of user
+     */ 
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set the value of user
+     *
+     * @return  self
+     */ 
+    public function setUser($user)
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -12,10 +12,13 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 class OrderService
 {
-    private ?User $user;
+    private ?User $currentUser;
     public function __construct(
-        private OrderRepository $orderRepository
-    ) {}
+        private OrderRepository $orderRepository,
+        private TokenStorageInterface $tokenStorage
+    ) {
+        $this->currentUser = $tokenStorage->getToken()->getUser();
+    }
 
     public function create(OrderCreateDto $orderDto): Order
     {
@@ -24,6 +27,7 @@ class OrderService
         $order->setMessage($orderDto->message);
         $order->setTopic($orderDto->topic);
         $order->setStatus(OrderStatus::NEW);
+        $order->setUser($this->currentUser);
 
         $this->orderRepository->add($order, true);
 
@@ -33,6 +37,11 @@ class OrderService
     public function getAll(): array
     {
         return $this->orderRepository->getAll();
+    }
+
+    public function getCurrentUserAll(): array
+    {
+        return $this->orderRepository->findBy(["user" => $this->currentUser->getId()]);
     }
 
     public function findOne(int $id): ?Order

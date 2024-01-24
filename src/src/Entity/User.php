@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -27,6 +28,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(unique: true)]
     private string $username;
+
+    #[ORM\OneToMany(targetEntity: Order::class, mappedBy: 'user')]
+    private Collection $orders;
 
     public function getId(): ?string
     {
@@ -122,5 +126,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getSalt(): ?string
     {
         return null;
+    }
+
+    /**
+     * Get the value of orders
+     */ 
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    /**
+     * Set the value of orders
+     *
+     * @return  self
+     */ 
+    public function setOrders($orders)
+    {
+        $this->orders = $orders;
+
+        return $this;
     }
 }
