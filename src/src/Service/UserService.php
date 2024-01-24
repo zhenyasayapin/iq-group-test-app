@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Entity\Dto\UserDto;
+use App\Dto\UserDto;
 use App\Entity\User;
 use App\Enum\Role;
 use Doctrine\ORM\EntityManagerInterface;

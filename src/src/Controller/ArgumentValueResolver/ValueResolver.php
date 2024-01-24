@@ -2,7 +2,7 @@
 
 namespace App\Controller\ArgumentValueResolver;
 
-use App\Entity\Dto\AbstractDto;
+use App\Dto\AbstractDto;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 use Symfony\Component\HttpKernel\Controller\ValueResolverInterface;

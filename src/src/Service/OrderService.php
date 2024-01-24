@@ -2,10 +2,10 @@
 
 namespace App\Service;
 
-use App\Entity\Dto\OrderCreateDto;
-use App\Entity\Dto\OrderUpdateDto;
+use App\Dto\OrderCreateDto;
+use App\Dto\OrderUpdateDto;
 use App\Entity\Order;
-use App\Entity\OrderStatus;
+use App\Enum\OrderStatus;
 use App\Entity\User;
 use App\Enum\Role;
 use App\Repository\OrderRepository;

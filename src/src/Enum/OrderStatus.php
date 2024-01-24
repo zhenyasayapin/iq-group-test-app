@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Entity;
+namespace App\Enum;
+
 use App\Trait\EnumTrait;
 
 enum OrderStatus: string

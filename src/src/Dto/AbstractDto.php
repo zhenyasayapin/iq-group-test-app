@@ -1,5 +1,5 @@
 <?php
 
-namespace App\Entity\Dto;
+namespace App\Dto;
 
 abstract class AbstractDto {}

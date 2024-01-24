@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Dto;
+namespace App\Dto;
 
 use App\Enum\Role;
 use Symfony\Component\Validator\Constraints as Assert;

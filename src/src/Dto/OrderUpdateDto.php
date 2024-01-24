@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Dto;
+namespace App\Dto;
 
-use App\Entity\OrderStatus;
+use App\Enum\OrderStatus;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class OrderUpdateDto extends AbstractDto

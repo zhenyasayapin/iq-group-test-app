@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service\Transformer;
+namespace App\Transformer;
 
 use App\Entity\User;
 

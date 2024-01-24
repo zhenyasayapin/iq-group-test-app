@@ -2,13 +2,13 @@
 
 namespace App\Controller;
 
-use App\Entity\Dto\OrderCreateDto;
-use App\Entity\Dto\OrderUpdateDto;
+use App\Dto\OrderCreateDto;
+use App\Dto\OrderUpdateDto;
 use App\Entity\Order;
 use App\Service\CommonService;
 use App\Service\OrderService;
-use App\Service\Transformer\OrderStatusTransformer;
-use App\Service\Transformer\OrderTransformer;
+use App\Transformer\OrderStatusTransformer;
+use App\Transformer\OrderTransformer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

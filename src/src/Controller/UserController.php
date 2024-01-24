@@ -2,11 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\Dto\UserDto;
+use App\Dto\UserDto;
 use App\Service\CommonService;
-use App\Service\Transformer\UserTransformer;
+use App\Transformer\UserTransformer;
 use App\Service\UserService;
-use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
