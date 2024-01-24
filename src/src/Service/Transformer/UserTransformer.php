@@ -10,7 +10,8 @@ class UserTransformer
     {
         return [
             'id' => $user->getId(),
-            'username' => $user->getUsername()
+            'username' => $user->getUsername(),
+            'roles' => $user->getRoles()
         ];
     }
 }

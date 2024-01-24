@@ -1,15 +1,13 @@
 <?php
 
 namespace App\Entity;
+use App\Trait\EnumTrait;
 
 enum OrderStatus: string
 {
+    use EnumTrait;
+    
     case NEW = 'new';
     case PROCESSING = 'processing';
     case SOLVED = 'solved';
-
-    public static function values(): array
-    {
-        return array_column(self::cases(), 'value');
-    }
 }

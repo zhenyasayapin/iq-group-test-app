@@ -2,6 +2,7 @@
 
 namespace App\Entity\Dto;
 
+use App\Enum\Role;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class UserDto extends AbstractDto
@@ -21,4 +22,8 @@ class UserDto extends AbstractDto
         max: 255
     )]        
     public $plainPassword;
+
+    #[Assert\NotBlank] 
+    #[Assert\Choice(callback: [Role::class, 'values'])]
+    public $role;
 }

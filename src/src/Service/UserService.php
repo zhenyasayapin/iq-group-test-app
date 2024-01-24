@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\Dto\UserDto;
 use App\Entity\User;
+use App\Enum\Role;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
@@ -21,6 +22,7 @@ class UserService
 
         $user->setPassword($password);
         $user->setUsername($userDto->username);
+        $user->setRoles([Role::from($userDto->role)]);
 
         $this->em->persist($user);
         $this->em->flush();
