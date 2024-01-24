@@ -6,9 +6,7 @@ use App\Entity\Order;
 
 class OrderStatusTransformer
 {
-    public function __construct()
-    {}
-    public function transform(Order $order)
+    public function transform(Order $order): array
     {
         return [
             'id' => $order->getId(),
