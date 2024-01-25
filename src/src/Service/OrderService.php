@@ -49,6 +49,10 @@ class OrderService
     public function findOne(int $id): ?Order
     {
         $order = $this->orderRepository->findOne($id);
+        
+        if (!$order) {
+            throw new \InvalidArgumentException("Order not found");
+        }
 
         if (
             !in_array(Role::ROLE_MANAGER->value, $this->currentUser->getRoles())
