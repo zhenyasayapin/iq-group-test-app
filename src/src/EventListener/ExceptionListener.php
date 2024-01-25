@@ -15,7 +15,6 @@ class ExceptionListener
         $response = new JsonResponse(
             [
                 'error' => [
-                    'code' => $exception->getCode(),
                     'message' => $exception->getMessage(),
                 ],
             ],

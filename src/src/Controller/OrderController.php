@@ -63,7 +63,9 @@ class OrderController extends AbstractController
         if (count($errors) > 0) {
 
             return new JsonResponse([
-                "errors" => $this->commonService->getValidationErrorMessages($errors)
+                "error" => [
+                    'messages' => $this->commonService->getValidationErrorMessages($errors)
+                ]
             ]);
         }
 
@@ -83,14 +85,16 @@ class OrderController extends AbstractController
 
     #[Route('/{id}', methods: ['PUT'])]
     #[IsGranted('ROLE_MANAGER')]
-    public function update($id, OrderUpdateDto $orderDto): Response
+    public function update($id, OrderUpdateDto $orderDto): JsonResponse
     {
         $errors = $this->validator->validate($orderDto);
 
         if (count($errors) > 0) {
 
             return new JsonResponse([
-                "errors" => $this->commonService->getValidationErrorMessages($errors)
+                "error" => [
+                    'messages' => $this->commonService->getValidationErrorMessages($errors)
+                ]
             ]);
         }
 
