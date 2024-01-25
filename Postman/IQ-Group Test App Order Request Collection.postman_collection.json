@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "0a3418e5-0d67-4be4-bca0-5c6fc609ce88",
+		"name": "IQ-Group Test App Order Request Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31984757"
+	},
+	"item": [
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDYxMjA5ODAsImV4cCI6MTcwNjEyNDU4MCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlcjIifQ.Fc0ua3nzB9QXgaskJc9L6Qu9LQNiY0S_2Ep6BQ4NKTJVeK5WijMy8naxFQ-k1rXXLS4RVD2FeouxBvqm0OZ0gPr43bqDM5AtX_GCQYOrsuS_fs4SJQlC8eF6zXH2ct2hdT4hMXFm3tuWdPn8dTZGSj-Xg3l6P5VrL4bStWd_xzxQ7I5OJU-wLiFUYbtpdLp2efHCj2E0mwCvfkCbEebrszyvl0Q4Z0EHk-qwkr-Bke_K_RcrlaO4kg3Nog1xVhJkQf6r37-s_Di7ml8-kN8FM9HhbuBs5nJNbkC5OTlDS7fcNcDDY01ikWuN_6YVbgIL3n2Bo2Q35U64Kl-krEXONg",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"topic\": \"Some topic\",\n    \"message\": \"Some message\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/orders/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDYxMTU2MTUsImV4cCI6MTcwNjExOTIxNSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlciJ9.XEj80k9hET3JJAogB4Xqm4ZVY8ZOeXVGX3yJZz2fx_Z219XSLD1Q5DvhoaUBC78KWBv8mPMG0A9BEZIgSysR9iTAsAovyiAcVLa3q2q-ccoE9pXIOnYe8rb_bdawjAkSUt5NK7ZJZ4iy9ilaDKfYpabyRXHOaGKnQ8SHhwKjdEOAm2T_fFzQpDdhUqcy7U0iiaqhtonG4sXJfiXw47WKZH_XQaMSiZA3ilijrxq16_jIPZbxRIQ78tikkITgGg6gLSPzn2-p6qjb3aBzV1IqR8TF4W-59n21iYDpx5HRXCsyS3SvX4WqlrjmZAQLVHVQEKAGMdUNkk42nBmcHPrxDw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/orders/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/orders/my",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order Status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/orders/6",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						"6"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Order Status And Comment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"new\",\n    \"comment\": \"Changed comment\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/orders/6",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDYxNDgyNDAsImV4cCI6MTcwNjE1MTg0MCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlciJ9.bOxvXR14vwnvoNll20NAylyruXFmsZv3AeR5si4PuPcKoWfqRVkyP9nRgWCFDypBTQgkrGMcxwf6zYt6EPMYWZBG5WA9VBCXGAyX6Np83_TWThBRWzo2cKm-HmXey6h9mcPYpUy2uqg7Ho4McTxIXAz3sNsOmjPeUUGxFSHJGR1rEMddr0dVSKqZjlXOdiqcZWaXqb9tkWZ01BFacFQJEn4y5FL-K4jhEpgC0k6BHZ2V7aJxBA58CpoUnoFfKZAoB1bJtRo463y2tdlBfH8kgUY3M-_PRwAX-ZywbAXkpsNAQ1oj1CI40bEFoYycfAxumIGhew44ZHCKooMfDEvixA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "XDEBUG_SESSION_START",
+			"value": "ECLIPSE",
+			"type": "string"
+		}
+	]
+}
